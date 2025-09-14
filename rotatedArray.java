@@ -5,28 +5,28 @@ public class rotatedArray {
         System.out.println(search(arr,target));
     }
     static int search(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+        int start = 0;
+        int end = nums.length - 1;
 
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
+        while (start <= end) {
+            int mid = start + (end - start) / 2;
 
             if (nums[mid] == target) {
                 return mid; // Target found
             }
 
             // Determine which side is sorted
-            if (nums[left] <= nums[mid]) { // Left side is sorted
-                if (target >= nums[left] && target < nums[mid]) {
-                    right = mid - 1; // Target is in the left sorted side
+            if (nums[start] <= nums[mid]) { // Left side is sorted
+                if (target >= nums[start] && target < nums[mid]) {
+                    end = mid - 1; // Target is in the left sorted side
                 } else {
-                    left = mid + 1; // Target is in the right side
+                    start = mid + 1; // Target is in the right side
                 }
             } else { // Right side is sorted
-                if (target > nums[mid] && target <= nums[right]) {
-                    left = mid + 1; // Target is in the right sorted side
+                if (target > nums[mid] && target <= nums[end]) {
+                    start = mid + 1; // Target is in the right sorted side
                 } else {
-                    right = mid - 1; // Target is in the left side
+                    end = mid - 1; // Target is in the left side
                 }
             }
         }
