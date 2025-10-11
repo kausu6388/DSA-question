@@ -2,26 +2,23 @@ import java.util.Scanner;
 
 class FindVowels {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        // Take string input
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Enter a string: ");
-        String str = sc.nextLine();
+        String input = scanner.nextLine();
+        int vowelCount = countVowels(input);
+        System.out.println("Number of vowels in the string: " + vowelCount);
+        scanner.close();
+    }
 
-        System.out.print("Vowels in the string: ");
+    public static int countVowels(String str) {
         int count = 0;
-        for (int i = 0; i < str.length(); i++) {
-            char ch = Character.toLowerCase(str.charAt(i));
-
-            // Check for vowels
-            if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+        String vowels = "aeiouAEIOU";
+        for (char ch : str.toCharArray()) {
+            if (vowels.indexOf(ch) != -1) {
                 count++;
-                System.out.print(str.charAt(i) + " ");
-                // Print the total number of vowels found
-                // System.out.println("\nTotal number of vowels: " + count);
             }
         }
-
-        
+        return count;
     }
+   
 }

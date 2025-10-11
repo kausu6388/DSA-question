@@ -1,10 +1,22 @@
+import java.util.Scanner;
+
 public class FirstAndLast {
     public static void main(String[] args) {
-        int [] arr = {5,7,7,8,8,10};
-        int target = 8;
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int [] arr = new int[n];
+        for(int i = 0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+        int target = sc.nextInt();
         FirstAndLast obj = new FirstAndLast();
         int [] ans = obj.searchRange(arr,target);
         System.out.println(ans[0] + " " + ans[1]);
+        // int [] arr = {5,7,7,8,8,10};
+        // int target = 8;
+        // FirstAndLast obj = new FirstAndLast();
+        // int [] ans = obj.searchRange(arr,target);
+        // System.out.println(ans[0] + " " + ans[1]);
 
         
     }

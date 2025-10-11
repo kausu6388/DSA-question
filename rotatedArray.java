@@ -1,37 +1,42 @@
+import java.util.Scanner;
+
 public class rotatedArray {
+
     public static void main(String[] args) {
-        int[] arr = {4,5,6,7,0,1,2};
-        int target = 0;
-        System.out.println(search(arr,target));
-    }
-    static int search(int[] nums, int target) {
-        int start = 0;
-        int end = nums.length - 1;
-
-        while (start <= end) {
-            int mid = start + (end - start) / 2;
-
-            if (nums[mid] == target) {
-                return mid; // Target found
-            }
-
-            // Determine which side is sorted
-            if (nums[start] <= nums[mid]) { // Left side is sorted
-                if (target >= nums[start] && target < nums[mid]) {
-                    end = mid - 1; // Target is in the left sorted side
-                } else {
-                    start = mid + 1; // Target is in the right side
-                }
-            } else { // Right side is sorted
-                if (target > nums[mid] && target <= nums[end]) {
-                    start = mid + 1; // Target is in the right sorted side
-                } else {
-                    end = mid - 1; // Target is in the left side
-                }
-            }
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
         }
-
-        return -1; // Target not found
+        int d = sc.nextInt();
+        rotate(arr, d);
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        sc.close();
     }
-    
+
+    // Rotates the array to the left by d positions
+    private static void rotate(int[] arr, int d) {
+        int n = arr.length;
+        if (n == 0) return;
+        d = d % n;
+        if (d < 0) d += n;
+        // left rotation by d: reverse 0..d-1, reverse d..n-1, reverse 0..n-1
+        reverse(arr, 0, d - 1);
+        reverse(arr, d, n - 1);
+        reverse(arr, 0, n - 1);
+    }
+
+    private static void reverse(int[] arr, int start, int end) {
+        while (start < end) {
+            int temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
+            start++;
+            end--;
+        }
+    }
 }

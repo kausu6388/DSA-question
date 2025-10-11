@@ -22,3 +22,8 @@ public class moveallzeros {
         }
     }
 }
+// home work
+// rain water tappin.
+// leetcode one.
+// https://leetcode.com/problems/trapping-rain-water/description/
+// https://practice.geeksforgeeks.org/problems/trapping-rain-water-1587115621/1
