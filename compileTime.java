@@ -149,7 +149,7 @@ class Truck extends vehicle{
         }
     
 }
-public class Main{
+public class compileTime{
     public static void main(String[] args) {
         vehicle car = new Car("toyota", 180,5);
         vehicle bike = new Bike("fr",56,true);
