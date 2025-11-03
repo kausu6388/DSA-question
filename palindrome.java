@@ -33,12 +33,12 @@ public class palindrome{
         for(int i = length-1; i >=0; i--){
             rev = rev+str.charAt(i);
         }
-        System.out.println(rev);
-        // if(org.equals(rev)){
-        //     System.out.println("palindrome string");
-        // }
-        // else {
-        //     System.out.println("not palindrome");
-        // }
+       
+        if(org.equals(rev)){
+            System.out.println("palindrome string");
+        }
+        else {
+            System.out.println("not palindrome");
+        }
     }
 }
