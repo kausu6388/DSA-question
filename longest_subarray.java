@@ -12,11 +12,11 @@ public class longest_subarray {
         int maxLength = 0;
 
         for (int i = 0; i < n; i++) {
-            int currentSum = 0;
+            int sum = 0;
             for (int j = i; j < n; j++) {
-                currentSum += arr[j];
+                sum += arr[j];
 
-                if (currentSum == k) {
+                if (sum == k) {
                     maxLength = Math.max(maxLength, j - i + 1);
                 }
             }
