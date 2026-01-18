@@ -10,8 +10,7 @@ class removeduplicate {
             }
 
         }
-        System.out.println("Number of unique elements: " + k);
-        System.out.print("Array after removing duplicates: ");
+        
         for(int i=0; i<k; i++){
             System.out.print(arr[i] + " ");
         }
