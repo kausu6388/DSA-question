@@ -1,19 +1,26 @@
+ import java.util.*;
 class removeduplicate {
+   
     public static void main(String[] args) {
         int arr[] = {1,1,2,2,3,4,4,5,6};
         int n = arr.length;
-        int k = 1;
-        for(int i=0; i<n; i++){
-            if(arr[i] != arr[k-1]){
-                arr[k] = arr[i];
-                k++;
-            }
+        // int k = 1;
+        // for(int i=0; i<n; i++){
+        //     if(arr[i] != arr[k-1]){
+        //         arr[k] = arr[i];
+        //         k++;
+        //     }
 
-        }
+        // }
         
-        for(int i=0; i<k; i++){
-            System.out.print(arr[i] + " ");
+        // for(int i=0; i<k; i++){
+        //     System.out.print(arr[i] + " ");
+        // }
+        HashSet<Integer> set = new HashSet<>();
+        for(int i=0; i<n; i++){
+            set.add(arr[i]);
         }
+        System.out.println(set);
     }
     // public int removeDuplicates(int[] nums) {
     //     if (nums.length == 0) return 0;
