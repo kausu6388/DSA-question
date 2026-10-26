@@ -31,6 +31,20 @@ class LinkedList{// user defined data structure
             tail = temp;
         }
     }
+
+
+
+    void deleteAtHead(int val){
+        if (head==null) {
+            System.out.println("list is empty");
+            return;
+            
+        }
+        head = head.next;
+    }
+
+
+
     void display(){
         if(head==null) return ;
         Node temp = head;
@@ -52,6 +66,8 @@ public class LinkedListDataStructure {
         ll.addArTail(40);
         ll.display();
         ll.addArHead(90);
+        ll.display();
+        ll.deleteAtHead(90);
         ll.display();
     }
     
