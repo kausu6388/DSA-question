@@ -10,6 +10,7 @@ class Node{ // user defined data type
 
 
 class LinkedList{// user defined data structure
+    int size;
     Node head; // null
     Node tail; //null
 
@@ -19,7 +20,8 @@ class LinkedList{// user defined data structure
         else{
             temp.next = head;
             head = temp;
-        }        
+        }  
+        size++;      
 
     }
 
@@ -30,6 +32,7 @@ class LinkedList{// user defined data structure
             tail.next = temp;
             tail = temp;
         }
+        size++;
     }
 
 
@@ -41,6 +44,8 @@ class LinkedList{// user defined data structure
             
         }
         head = head.next;
+        if(head==null) tail = null;
+        size --;
     }
 
 
@@ -69,6 +74,7 @@ public class LinkedListDataStructure {
         ll.display();
         ll.deleteAtHead(90);
         ll.display();
+        System.out.println(ll.size);
     }
     
 }
