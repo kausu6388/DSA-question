@@ -14,7 +14,7 @@ class LinkedList{// user defined data structure
     Node head; // null
     Node tail; //null
 
-    void addArHead(int val){
+    void addAtHead(int val){
         Node temp = new Node(val);
         if(head==null) head = tail = temp;
         else{
@@ -25,7 +25,7 @@ class LinkedList{// user defined data structure
 
     }
 
-    void addArTail(int val){
+    void addAtTail(int val){
         Node temp = new Node(val);
         if(tail==null) head = tail = temp;
         else{
@@ -59,22 +59,41 @@ class LinkedList{// user defined data structure
         }
         System.out.println();
     }
+    void insert(int val , int idx){
+        if(idx<0 ||idx>size)System.out.println("invalid idx");
+                              
+           
+        
+        else if(idx==0) addAtHead(val);
+        else if(idx==size) addAtTail(val);
+        else{
+            Node temp =  head;
+            for(int i = 1 ; i<idx;i++){
+                temp = temp.next;
+            }
+            Node t = new Node(val);
+            t.next = temp.next;
+            temp.next = t;
+            size++;
+        }
+    }
 
 }
 
 public class LinkedListDataStructure {
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addArTail(10);
-        ll.addArTail(20);
-        ll.addArTail(30);
-        ll.addArTail(40);
+        ll.addAtTail(10);
+        ll.addAtTail(20);
+        ll.addAtTail(30);
+        ll.addAtTail(40);
         ll.display();
-        ll.addArHead(90);
+        ll.addAtHead(90);
         ll.display();
         ll.deleteAtHead(90);
         ll.display();
         System.out.println(ll.size);
+        ll.insert(40, 3);
     }
     
 }
