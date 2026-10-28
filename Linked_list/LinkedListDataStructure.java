@@ -59,6 +59,16 @@ class LinkedList{// user defined data structure
         }
         System.out.println();
     }
+    int get (int idx){
+        Node temp = head;
+        for(int i = 1 ; i<=idx ; i++){
+            temp = temp.next;
+        }
+        return temp.val;
+
+
+    }
+   
     void insert(int val , int idx){
         if(idx<0 ||idx>size)System.out.println("invalid idx");
                               
@@ -77,7 +87,17 @@ class LinkedList{// user defined data structure
             size++;
         }
     }
+    void delete(int idx){
+        Node temp = head;
+        for(int i = 1 ; i<=idx-1;i++){
+            temp = temp.next;
 
+
+        }
+        temp.next = temp.next.next; //thir is actually deleting the element
+        if(idx==size - 1) tail = temp;  // we are deleting tail
+        size--;
+    }
 }
 
 public class LinkedListDataStructure {
@@ -92,8 +112,11 @@ public class LinkedListDataStructure {
         ll.display();
         ll.deleteAtHead(90);
         ll.display();
-        System.out.println(ll.size);
-        ll.insert(40, 3);
+        // System.out.println(ll.size);
+        ll.insert(46, 2 );ll.display();
+        System.out.println(ll.get(3));
+        ll.delete(4);
+
     }
     
 }
